@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>BackDrop</title>
+</head>
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img class="logo" src="img/logo.png" alt="logo">
+            <div class="user">
+                <button type="button">Регистрация</button>
+                <img class="user" src="img/user.png" alt="user">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="info">
+                <h1>Фотосток</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ipsa eveniet! <br> Aspernatur nobis sit mollitia saepe molestiae repellat.</p>
+                <input type="text" placeholder="Поиск">
+            </div>
+        </div>
+
+        <div class="slider">
+            <img src="img/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="img/small12.png" alt="" class="active thumbnail">
+                <img src="img/small13.png" alt="" class="thumbnail">
+                <img src="img/small14.png" alt="" class="thumbnail">
+                <img src="img/small15.png" alt="" class="thumbnail">
+                <img src="img/small16.png" alt="" class="thumbnail">
+            </div>
+            <img src="img/right-arrow.png" id="next">
+        </div>
+    </div><!-- Hero -->
+
+    <script>
+
+        let prev = document.getElementById('prev');
+        let next = document.getElementById('next');
+        let thumbnail = document.getElementsByClassName('thumbnail');
+        let hero = document.getElementById('hero');
+
+        let backgroundImg = new Array(
+            "img/bg12.png",
+            "img/bg13.png",
+            "img/bg14.png",
+            "img/bg15.png",
+            "img/bg16.png",
+        );
+
+        let i = 0;
+        next.onclick = function() {
+
+            if (i < 4) {
+                hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+                thumbnail[i+1].classList.add('active');
+                thumbnail[i].classList.remove('active');
+                i++;
+            }
+        }
+
+        prev.onclick = function() {
+
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+                thumbnail[i-1].classList.add('active');
+                thumbnail[i].classList.remove('active');
+                i--;
+            }
+        }
+
+    </script>
+</body>
+</html>
